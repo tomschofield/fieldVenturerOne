@@ -1,0 +1,10 @@
+html{
+	
+	background-color: black;
+	color:orange;
+}
+.stay_inline{
+	margin: 0px,auto;
+	display: inline-block;
+	vertical-align: top;
+}

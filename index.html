@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Rover</title>
+    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='css/stylesheet.css'/>   
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="js/jquerysparkline.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.svg.css"> 
+    <script type="text/javascript" src="js/jquery.svg.js"></script>
+    <script type="text/javascript" src="js/jquery.svgdom.js"></script>
+    <style>
+      html{
+        background-color: rgba(100,100,100,1);
+        /*color:orange;*/
+        font-family: Abel;
+        font-size: 18pt;
+      }
+      #container {
+        width:1000px;
+        top: 15px;
+        margin:0 auto;
+        display: block;
+        position: relative;
+        /*border: 2px solid;
+        background-color: #E5E5E5 !important;*/
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>fieldVenturer One<h1>
+      <h2>made by fieldVentures</h2>
+      
+      <div id="sensor">
+
+      </div>
+      <!-- <div>
+        <button id="forward_right_button">forward right track</button>
+        <button id="forward_left_button">forward left track</button>
+        <button id="backwards_right_button">backwards right track</button>
+        <button id="backwards_left_button">backwards left track</button><br>
+      </div> -->
+      <div class="stay_inline">
+        <svg width="200px" id="bground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221.16 221.16"><defs><style>.cls-1{fill:#fff;stroke:#fff;stroke-width:12px;}.cls-1,.cls-10,.cls-8,.cls-9{stroke-miterlimit:10;}.cls-2{fill:#d1d3d4;}.cls-3{fill:#a7a9ac;}.cls-4{fill:#f1f2f2;}.cls-5{fill:#e6e7e8;}.cls-6{fill:#bcbec0;}.cls-7{fill:#939598;}.cls-8,.cls-9{fill:none;}.cls-8{stroke:#231f20;}.cls-9{stroke:#d1d3d4;}.cls-10{stroke:#f1f2f2;stroke-width:5px;}</style></defs><title>controllerGraphic</title><circle class="cls-1" cx="110.58" cy="110.58" r="79.7"/><line class="cls-2" x1="140.92" y1="68.97" x2="128.58" y2="85.97"/><polygon class="cls-3" points="128.58 138.63 140.91 155.63 140.91 68.97 128.58 85.97 128.58 138.63"/><polygon class="cls-4" points="92.58 138.63 80.25 155.63 80.25 68.97 92.58 85.97 92.58 138.63"/><rect class="cls-2" x="92.58" y="85.97" width="36" height="52.67"/><polygon class="cls-5" points="128.58 85.97 92.58 85.97 80.25 68.97 140.91 68.97 128.58 85.97"/><polygon class="cls-6" points="128.58 138.63 92.58 138.63 80.25 155.63 140.91 155.63 128.58 138.63"/><rect class="cls-7" x="65.92" y="74.63" width="14.33" height="75.33"/><line class="cls-8" x1="65.92" y1="76.59" x2="80.25" y2="76.59"/><line class="cls-8" x1="65.92" y1="79.72" x2="80.25" y2="79.72"/><line class="cls-8" x1="65.92" y1="84.34" x2="80.25" y2="84.34"/><line class="cls-8" x1="65.92" y1="89.72" x2="80.25" y2="89.72"/><line class="cls-8" x1="65.92" y1="94.97" x2="80.25" y2="94.97"/><line class="cls-8" x1="65.92" y1="100.72" x2="80.25" y2="100.72"/><line class="cls-8" x1="65.92" y1="107.34" x2="80.25" y2="107.34"/><line class="cls-8" x1="65.92" y1="113.63" x2="80.25" y2="113.63"/><line class="cls-8" x1="65.92" y1="119.36" x2="80.25" y2="119.36"/><line class="cls-8" x1="65.92" y1="124.84" x2="80.25" y2="124.84"/><line class="cls-8" x1="80.25" y1="148.47" x2="65.92" y2="148.47"/><line class="cls-8" x1="80.25" y1="145.34" x2="65.92" y2="145.34"/><line class="cls-8" x1="80.25" y1="140.72" x2="65.92" y2="140.72"/><line class="cls-8" x1="80.25" y1="135.34" x2="65.92" y2="135.34"/><line class="cls-8" x1="80.25" y1="130.09" x2="65.92" y2="130.09"/><line class="cls-9" x1="65.92" y1="75.84" x2="80.25" y2="75.84"/><line class="cls-9" x1="65.92" y1="78.97" x2="80.25" y2="78.97"/><line class="cls-9" x1="65.92" y1="83.59" x2="80.25" y2="83.59"/><line class="cls-9" x1="65.92" y1="88.97" x2="80.25" y2="88.97"/><line class="cls-9" x1="65.92" y1="94.22" x2="80.25" y2="94.22"/><line class="cls-9" x1="65.92" y1="99.97" x2="80.25" y2="99.97"/><line class="cls-9" x1="65.92" y1="106.59" x2="80.25" y2="106.59"/><line class="cls-9" x1="65.92" y1="112.88" x2="80.25" y2="112.88"/><line class="cls-9" x1="65.92" y1="118.61" x2="80.25" y2="118.61"/><line class="cls-9" x1="65.92" y1="124.09" x2="80.25" y2="124.09"/><line class="cls-9" x1="80.25" y1="147.72" x2="65.92" y2="147.72"/><line class="cls-9" x1="80.25" y1="144.59" x2="65.92" y2="144.59"/><line class="cls-9" x1="80.25" y1="139.97" x2="65.92" y2="139.97"/><line class="cls-9" x1="80.25" y1="134.59" x2="65.92" y2="134.59"/><line class="cls-9" x1="80.25" y1="129.34" x2="65.92" y2="129.34"/><rect class="cls-7" x="140.92" y="75.22" width="14.33" height="75.33"/><line class="cls-8" x1="140.92" y1="77.17" x2="155.25" y2="77.17"/><line class="cls-8" x1="140.92" y1="80.3" x2="155.25" y2="80.3"/><line class="cls-8" x1="140.92" y1="84.92" x2="155.25" y2="84.92"/><line class="cls-8" x1="140.92" y1="90.3" x2="155.25" y2="90.3"/><line class="cls-8" x1="140.92" y1="95.55" x2="155.25" y2="95.55"/><line class="cls-8" x1="140.92" y1="101.3" x2="155.25" y2="101.3"/><line class="cls-8" x1="140.92" y1="107.92" x2="155.25" y2="107.92"/><line class="cls-8" x1="140.92" y1="114.22" x2="155.25" y2="114.22"/><line class="cls-8" x1="140.92" y1="119.95" x2="155.25" y2="119.95"/><line class="cls-8" x1="140.92" y1="125.42" x2="155.25" y2="125.42"/><line class="cls-8" x1="155.25" y1="149.05" x2="140.92" y2="149.05"/><line class="cls-8" x1="155.25" y1="145.92" x2="140.92" y2="145.92"/><line class="cls-8" x1="155.25" y1="141.3" x2="140.92" y2="141.3"/><line class="cls-8" x1="155.25" y1="135.92" x2="140.92" y2="135.92"/><line class="cls-8" x1="155.25" y1="130.67" x2="140.92" y2="130.67"/><line class="cls-9" x1="140.92" y1="76.42" x2="155.25" y2="76.42"/><line class="cls-9" x1="140.92" y1="79.55" x2="155.25" y2="79.55"/><line class="cls-9" x1="140.92" y1="84.17" x2="155.25" y2="84.17"/><line class="cls-9" x1="140.92" y1="89.55" x2="155.25" y2="89.55"/><line class="cls-9" x1="140.92" y1="94.8" x2="155.25" y2="94.8"/><line class="cls-9" x1="140.92" y1="100.55" x2="155.25" y2="100.55"/><line class="cls-9" x1="140.92" y1="107.17" x2="155.25" y2="107.17"/><line class="cls-9" x1="140.92" y1="113.47" x2="155.25" y2="113.47"/><line class="cls-9" x1="140.92" y1="119.2" x2="155.25" y2="119.2"/><line class="cls-9" x1="140.92" y1="124.67" x2="155.25" y2="124.67"/><line class="cls-9" x1="155.25" y1="148.3" x2="140.92" y2="148.3"/><line class="cls-9" x1="155.25" y1="145.17" x2="140.92" y2="145.17"/><line class="cls-9" x1="155.25" y1="140.55" x2="140.92" y2="140.55"/><line class="cls-9" x1="155.25" y1="135.17" x2="140.92" y2="135.17"/><line class="cls-9" x1="155.25" y1="129.92" x2="140.92" y2="129.92"/><polygon id="forward" class="cls-10" points="142.91 58.88 110.58 40.22 78.25 58.88 78.25 21.55 110.58 2.89 142.91 21.55 142.91 58.88"/><polygon id="backward" class="cls-10" points="78.25 162.29 110.58 180.95 142.91 162.29 142.91 199.61 110.58 218.28 78.25 199.61 78.25 162.29"/><polygon id="right" class="cls-10" points="162.29 142.91 180.95 110.58 162.29 78.25 199.61 78.25 218.28 110.58 199.61 142.91 162.29 142.91"/><polygon id="left" class="cls-10" points="58.88 78.25 40.22 110.58 58.88 142.91 21.55 142.91 2.89 110.58 21.55 78.25 58.88 78.25"/></svg>
+        </div>
+      
+      
+      <div class="iv-embed stay_inline" style="width:642px;"><div class="iv-v" style="display:block;margin:0;padding:1px;border:0;background:#000;"><iframe class="iv-i" style="display:block;margin:0;padding:0;border:0;" src="https://open.ivideon.com/embed/v2/?server=100-0124bb0cab75383b6df90881822417ff&amp;camera=0&amp;width=&amp;height=&amp;lang=en" width="640" height="363" frameborder="0" allowfullscreen></iframe></div><div class="iv-b" style="display:block;margin:0;padding:0;border:0;"><div style="float:right;text-align:right;padding:0 0 10px;line-height:10px;"><a class="iv-a" style="font:10px Verdana,sans-serif;color:inherit;opacity:.6;" href="https://www.ivideon.com/" target="_blank">powered by Ivideon</a></div><div style="clear:both;height:0;overflow:hidden;">&nbsp;</div><script src="https://open.ivideon.com/embed/v2/embedded.js"></script></div></div>
+
+      <p>
+      Inline Sparkline: <span class="inlinesparkline">waiting for data</span>.
+      </p>
+      <!-- <ul id="messages"></ul> -->
+      <!-- <form action="">
+        <input id="m" autocomplete="off" /><button>Send</button>
+      </form> -->
+      <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+      
+      <script>
+
+        // $("polygon").click(function(){
+        //   console.log($(this).attr("id"));
+        // });
+
+
+        var myvalues = [];
+
+        var socket = io();
+        var clickColour = "black";
+        $(".cls-10").mouseover(function(){
+          $(this).attr("fill",'white');
+          //fill:#fbb040
+         
+          //console.log("over");
+        });
+
+        $(".cls-10").mouseleave(function(){
+          $(this).attr("fill",'#fbb040');
+          //fill:#fbb040
+         
+          //console.log("over");
+        });
+
+
+        $('#left').click(function() {
+          //console.log("left");
+          $(this).attr("fill",clickColour);
+          socket.emit('arduino_instruction', "5");
+        });
+        $('#right').click(function() {
+          //console.log("right");
+          $(this).attr("fill",clickColour);
+          socket.emit('arduino_instruction', "6");
+        });
+        $('#forward').click(function() {
+          //console.log("forward");
+          $(this).attr("fill",clickColour);
+          socket.emit('arduino_instruction', "7");
+        });
+        $('#backward').click(function() {
+          //console.log("backward");
+          $(this).attr("fill",clickColour);
+          socket.emit('arduino_instruction', "8");
+        });
+        socket.on('arduino message', function(msg){
+          //console.log('got arduino message: ' + msg);
+          var n = msg.indexOf("*");
+          var val = msg.substring(0,n);
+          $('#sensor').text("particulates: "+val);
+          myvalues.push(val);
+          if(myvalues.length>100){
+            myvalues.shift();
+          }
+
+          $('.inlinesparkline').sparkline(myvalues,{ type:'line', lineColor:'black',fillColor:'rgba(255,255,255,0.6)',chartRangeMin:'100',chartRangeMax:'255' });
+        //});
+          // socket.emit('chat message', $('#m').val());
+          // $('#m').val('');
+          // return false;
+        });
+        socket.on('chat message', function(msg){
+          $('#messages').append($('<li>').text(msg));
+
+        });
+      </script>
+    </div>
+  </body>
+</html>
