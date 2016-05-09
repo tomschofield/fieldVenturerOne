@@ -19,6 +19,9 @@ on YUN make sure the following is running (it’s a start up script so you shoul
 
 ./yalertunnel proxy 127.0.0.1:8080 try.yaler.io:80 YOURYALERHERE
 
+or if you suspect foul play from the network
+./yalertunnel proxy 127.0.0.1:8080 ssl:via-eu-west-1.yaler.io:443 YOURYALERHERE
+
 
 the arduino will call server_2.js as a process
 
