@@ -1,7 +1,185 @@
+
+/*http://fontsinuse.com/uses/10500/the-martian-ui-graphics*/
 html{
 	
-	background-color: black;
+	/*background-color: rgba(100,100,100,1);*/
+	background: -webkit-linear-gradient(top, rgba(50,50,50,1), #000033 );
+	color:lightGray;
+	font-family: Orbitron, Jura, Abel;
+	font-size: 18pt;
+}
+h1{
+	color: white;
+}
+
+#container {
+	width: 1920px;
+	height:1080px;
+}
+.bar_chart{
+	background-color: #323130;
+	height:100px;
+	position: relative;
+}
+.bar{
+	position: absolute;
+	
+	height:80px;
+	
+	z-index: 2;
+	width:40px;
+}
+#alcohol_bar{
+	background-color: #26d0d0;
+}
+#c02_bar{
+	background-color: orange;
+}
+#methane_bar{
+	background-color: lightGray;
+}
+#humidity_bar{
+	background-color: #713274;
+}
+#status_panel{
+	width:400px;
+}
+#connection_status{
+	/*width:100px;
+	height:100px;*/
+	font-size: 10pt;
+	background-color: #323130;
+	padding:8px;
+	margin-bottom: 10px;
+}
+.check_box{
+	font-size: 64pt;
 	color:orange;
+	border:2px solid;
+	border-color:white;
+	width:64px;
+	height: 64px;
+}
+.motion{
+	display: none;
+	background-color:orange;
+	
+	width:100%;
+	height: 100%;
+}
+.bar_background{
+	position: absolute;
+	background-color: #2d5a5b;
+	height:80px;
+	left:10px;
+	top:10px;
+	z-index: 1;
+	width:95%;
+}
+
+
+.v_bar_chart{
+	background-color: #323130;
+	height:250px;
+	width: 100px;
+	position: relative;
+	
+}
+.v_bar{
+	position: absolute;
+	background-color: orange;
+	height:250px;
+	
+	z-index: 2;
+	width:80px;
+}
+.v_bar_label{
+	position: absolute;
+	font-size: 10pt;
+	
+	z-index: 10;
+	
+}
+.v_bar_background{
+	position: absolute;
+	background-color: #2d5a5b;
+	height:230px;
+	left:10px;
+	top:10px;
+	z-index: 1;
+	width:80px;
+}
+#battery_label{
+	position: absolute;
+	color:black;
+	font-size: 10pt;
+	bottom:2px;
+	left:2px;
+}
+
+#level_label{
+	position: absolute;
+	color:black;
+	font-size: 10pt;
+	bottom:2px;
+	left:2px;
+}
+
+#streaming_data{
+	width:1840px;
+	height:180px;
+	margin: 10px;
+	padding: 10px;
+}
+.panel{
+	border: 2px solid;
+	border-radius: 2px;
+	border-color: #26d0d0;
+	margin:10px;
+	padding:10px;
+	background-color: rgba(0,0,0,0.2);
+}
+.indicator{
+	width:410px;
+	height:250px;
+	padding:10px;
+	margin:10px;
+	border: 2px solid;
+	border-radius: 2px;
+	border-color: gray;
+
+}
+#control_panel{
+	height:400px;
+
+}
+#systems_panel{
+	width:680px;
+	height:400px;
+}
+#indicator_panel{
+	width:1840px;
+
+}
+#camera_panel{
+	width:700px;
+	height:400px;
+}
+.panel_heading{
+	font-size: 22pt;
+}
+.indicator_heading{
+	font-size: 18pt;
+	background-color: #0a212b;
+}
+#inner{
+	width:1880px;
+	height:1040px;
+	margin: 10px;
+	padding: 10px;
+	border: 4px solid;
+	border-radius: 10px;
+	border-color: gray;
 }
 .stay_inline{
 	margin: 0px,auto;

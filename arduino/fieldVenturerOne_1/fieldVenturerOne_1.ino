@@ -22,6 +22,7 @@ int motorRunTime = 5000;
 int delaytime = 5000;
 int motorAction = 0;
 boolean debug = false;
+const int numSensors = 4;
 
 const int
 PWM_A   = 3,
@@ -55,7 +56,14 @@ void loop() {
 
   if (nodejs.running()) {
 
-    writeNumberToNode(analogRead(A0));
+    //writeNumberToNode(analogRead(A0));
+    
+    int readings [numSensors];
+    readings[0] = analogRead(A0);
+    readings[1] = analogRead(A1);
+    readings[2] = analogRead(A2);
+    readings[3] = analogRead(A3);
+    writeNumbersToNode(readings, numSensors);
   }
   //if it isn't running restart it!
   else {
@@ -71,7 +79,7 @@ void loop() {
     int reading = nodejs.read();
     //left
     if (reading != 10) {
-      writewordToNode("received");
+      //writewordToNode("received");
       
       Wire.beginTransmission(8); // transmit to device #8
       // Wire.write("x is ");        // sends five bytes
@@ -98,23 +106,30 @@ void loop() {
 }
 
 
-
-
-//void setupMotors() {
-//
-//  pinMode(BRAKE_A, OUTPUT);  // Brake pin on channel A
-//  pinMode(DIR_A, OUTPUT);    // Direction pin on channel A
-//
-//  pinMode(BRAKE_B, OUTPUT);  // Brake pin on channel B
-//  pinMode(DIR_B, OUTPUT);    // Direction pin on channel B
-//
-//}
 void writeNumberToNode(int reading) {
   String num = String(reading);
   num += "*";
   for (int i = 0; i < num.length(); i++) {
     //nodejs.write(Str2[i]);
     nodejs.write(num.charAt(i));
+  }
+
+  //add the requisite new line
+  nodejs.write(10);
+
+}
+void writeNumbersToNode(int readings [], int numReadings) {
+  String msg = "";
+  for(int i=0;i<numReadings;i++){
+    String num = String(readings[i]);
+    msg+=num;
+    msg+="*";
+  }
+  
+  //num += "*";
+  for (int i = 0; i < msg.length(); i++) {
+    //nodejs.write(Str2[i]);
+    nodejs.write(msg.charAt(i));
   }
 
   //add the requisite new line
