@@ -5,11 +5,8 @@ var io = require('socket.io')(http);
 var path = require('path');
 var net = require('net');
 
-<<<<<<< HEAD
+
 var HOST = '127.0.0.1';
-=======
-var HOST = '127.0.0.1';//192.168.1.102';
->>>>>>> 0b108bf0b2d6bd326d773caafc44d7f45fa43206
 var PORT = 18080;
 
 var client = new net.Socket();
