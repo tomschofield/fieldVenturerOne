@@ -63,7 +63,7 @@ $( document ).ready(function() {
   ///bar chart and spark line colours
   var color0 = "#26d0d0"; 
   var color1 = "white"; 
-  var color2 = "orange"; 
+  var color2 = "lightGray"; 
   var color3 = "#713274"; 
 
 
@@ -335,22 +335,14 @@ $( document ).ready(function() {
       // $('#sensor3').text("particulates: "+readings[3]);
 
        rangeFinder.update(readings[0]);
-       rangeFinder0.update(readings[1]);
-       rangeFinder1.update(readings[2]);
-       rangeFinder2.update(readings[3]);
       // console.log(rangeFinder.top, rangeFinder.bottom);
 
-      var freqShift =- 200;
+      var freqShift =-200;// 800;
 
-      // oscillator.frequency.value = parseInt(readings[0]).map(0,500,0,1023);
-      // oscillator1.frequency.value = parseInt(readings[1])+freqShift;
-      // oscillator2.frequency.value = parseInt(readings[2])+freqShift;
-      // oscillator3.frequency.value = parseInt(readings[3])+freqShift;
-
-         oscillator.frequency.value = parseInt(readings[0]).map(0,500,0,1023)+freqShift;
-      oscillator1.frequency.value = parseInt(readings[1]).map(0,500,100,400)+freqShift;
-      oscillator2.frequency.value = parseInt(readings[2]).map(0,500,100,400)+freqShift;
-      oscillator3.frequency.value = parseInt(readings[3]).map(0,500,100,400)+freqShift;
+      oscillator.frequency.value = parseInt(readings[0]).map(100,500,0,1023);
+      oscillator1.frequency.value = parseInt(readings[1])+freqShift;
+      oscillator2.frequency.value = parseInt(readings[2])+freqShift;
+      oscillator3.frequency.value = parseInt(readings[3])+freqShift;
 
 
       myvalues.push(readings[0]);
@@ -358,10 +350,10 @@ $( document ).ready(function() {
       myvalues2.push(readings[2]);
       myvalues3.push(readings[3]);
 
-      $("#alcohol_bar").width(parseInt(readings[0]).map(0,299,0,$('#alcohol_hook').width()));
-      $("#c02_bar").width(parseInt(readings[1]).map(0,300,0,$('#c02_hook').width()));
-      $("#methane_bar").width(parseInt(readings[2]).map(0,300,0,$('#methane_hook').width()));
-      $("#humidity_bar").width(parseInt(readings[3]).map(0,300,0,$('#humidity_hook').width()));
+      $("#alcohol_bar").width(parseInt(readings[0]).map(0,1023,0,$('#alcohol_hook').width()));
+      $("#c02_bar").width(parseInt(readings[1]).map(0,1023,0,$('#c02_hook').width()));
+      $("#methane_bar").width(parseInt(readings[2]).map(0,1023,0,$('#methane_hook').width()));
+      $("#humidity_bar").width(parseInt(readings[3]).map(0,1023,0,$('#humidity_hook').width()));
 
       var arrLength =500;
       if(myvalues.length>arrLength){
@@ -379,20 +371,20 @@ $( document ).ready(function() {
   }
 
 
-    $('#alcohol_box').sparkline(myvalues,{type:'box',height: boxHeight, width: boxWidth, lineColor:color1, outlierLineColor:outlierLineColor, whiskerColor:whiskerColor,lineWidth:lWidth, boxLineColor:boxLineColor,medianColor:medianColor,boxFillColor:boxFillColor });
+//    $('#alcohol_box').sparkline(myvalues,{type:'box',height: boxHeight, width: boxWidth, lineColor:color1, outlierLineColor:outlierLineColor, whiskerColor:whiskerColor,lineWidth:lWidth, boxLineColor:boxLineColor,medianColor:medianColor,boxFillColor:boxFillColor });
     $('#c02_box').sparkline(myvalues1,{type:'box',height: boxHeight, width: boxWidth, lineColor:color1, outlierLineColor:outlierLineColor, whiskerColor:whiskerColor,lineWidth:lWidth, boxLineColor:boxLineColor,medianColor:medianColor,boxFillColor:boxFillColor });
     $('#methane_box').sparkline(myvalues2,{type:'box',height: boxHeight, width: boxWidth, lineColor:color1, outlierLineColor:outlierLineColor, whiskerColor:whiskerColor,lineWidth:lWidth, boxLineColor:boxLineColor,medianColor:medianColor,boxFillColor:boxFillColor });
     $('#humidity_box').sparkline(myvalues3,{type:'box',height: boxHeight, width: boxWidth, lineColor:color1, outlierLineColor:outlierLineColor, whiskerColor:whiskerColor,lineWidth:lWidth, boxLineColor:boxLineColor,medianColor:medianColor,boxFillColor:boxFillColor });
     
-    // $('.inlinesparkline').sparkline(myvalues,{height:'100px',width: gWidth, lineWidth:lWidth, spotColor:'false',minSpotColor:'false',maxSpotColor:'false',  type:'line', lineColor:color0,fillColor:'rgba(255,255,255,0)',chartRangeMin:'100',chartRangeMax:'600' });
+    $('.inlinesparkline').sparkline(myvalues,{height:'100px',width: gWidth, lineWidth:lWidth, spotColor:'false',minSpotColor:'false',maxSpotColor:'false',  type:'line', lineColor:color0,fillColor:'rgba(255,255,255,0)',chartRangeMin:'100',chartRangeMax:'600' });
+    $('.inlinesparkline').sparkline(myvalues1,{composite:'true',lineWidth:lWidth, height:'100px',width: gWidth,spotColor:'false',minSpotColor:'false',maxSpotColor:'false',  type:'line', lineColor:color1,fillColor:'rgba(255,255,255,0)',chartRangeMin:'0',chartRangeMax:'1023' });
+    $('.inlinesparkline').sparkline(myvalues2,{composite:'true',lineWidth:lWidth, height:'100px',width: gWidth,spotColor:'false',minSpotColor:'false',maxSpotColor:'false',  type:'line', lineColor:color2,fillColor:'rgba(255,255,255,0)',chartRangeMin:'0',chartRangeMax:'1023' });
+    $('.inlinesparkline').sparkline(myvalues3,{composite:'true',lineWidth:lWidth, height:'100px',width: gWidth,spotColor:'false',minSpotColor:'false',maxSpotColor:'false',  type:'line', lineColor:color3,fillColor:'rgba(255,255,255,0)',chartRangeMin:'0',chartRangeMax:'1023' });
+
+     $('.inlinesparkline').sparkline(myvalues,{height:'100px',width: gWidth, lineWidth:lWidth, spotColor:'false',minSpotColor:'false',maxSpotColor:'false',  type:'line', lineColor:color0,fillColor:'rgba(255,255,255,0)',chartRangeMin:rangeFinder.bottom,chartRangeMax:rangeFinder.top });
     // $('.inlinesparkline').sparkline(myvalues1,{composite:'true',lineWidth:lWidth, height:'100px',width: gWidth,spotColor:'false',minSpotColor:'false',maxSpotColor:'false',  type:'line', lineColor:color1,fillColor:'rgba(255,255,255,0)',chartRangeMin:'0',chartRangeMax:'1023' });
     // $('.inlinesparkline').sparkline(myvalues2,{composite:'true',lineWidth:lWidth, height:'100px',width: gWidth,spotColor:'false',minSpotColor:'false',maxSpotColor:'false',  type:'line', lineColor:color2,fillColor:'rgba(255,255,255,0)',chartRangeMin:'0',chartRangeMax:'1023' });
     // $('.inlinesparkline').sparkline(myvalues3,{composite:'true',lineWidth:lWidth, height:'100px',width: gWidth,spotColor:'false',minSpotColor:'false',maxSpotColor:'false',  type:'line', lineColor:color3,fillColor:'rgba(255,255,255,0)',chartRangeMin:'0',chartRangeMax:'1023' });
-
-     $('.inlinesparkline').sparkline(myvalues,{height:'100px',width: gWidth, lineWidth:lWidth, spotColor:'false',minSpotColor:'false',maxSpotColor:'false',  type:'line', lineColor:color0,fillColor:'rgba(255,255,255,0)',chartRangeMin:rangeFinder.bottom,chartRangeMax:rangeFinder.top });
-    $('.inlinesparkline').sparkline(myvalues1,{composite:'true',lineWidth:lWidth, height:'100px',width: gWidth,spotColor:'false',minSpotColor:'false',maxSpotColor:'false',  type:'line', lineColor:color1,fillColor:'rgba(255,255,255,0)',chartRangeMin:rangeFinder0.bottom,chartRangeMax:rangeFinder0.top });
-    $('.inlinesparkline').sparkline(myvalues2,{composite:'true',lineWidth:lWidth, height:'100px',width: gWidth,spotColor:'false',minSpotColor:'false',maxSpotColor:'false',  type:'line', lineColor:color2,fillColor:'rgba(255,255,255,0)',chartRangeMin:rangeFinder1.bottom,chartRangeMax:rangeFinder1.top  });
-    $('.inlinesparkline').sparkline(myvalues3,{composite:'true',lineWidth:lWidth, height:'100px',width: gWidth,spotColor:'false',minSpotColor:'false',maxSpotColor:'false',  type:'line', lineColor:color3,fillColor:'rgba(255,255,255,0)',chartRangeMin:rangeFinder2.bottom,chartRangeMax:rangeFinder2.top  });
 
 
   //});

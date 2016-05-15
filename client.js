@@ -5,7 +5,7 @@ var io = require('socket.io')(http);
 var path = require('path');
 var net = require('net');
 
-var HOST = '127.0.0.1';//gsiot-p2js-7c2m.try.yaler.io';//192.168.1.102';
+var HOST = '127.0.0.1';
 var PORT = 18080;
 
 var client = new net.Socket();

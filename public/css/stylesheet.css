@@ -13,8 +13,12 @@ h1{
 }
 
 #container {
+	position: absolute;
+	left:-10px;
+	top:-10px;
 	width: 1920px;
 	height:1080px;
+	overflow: hidden;
 }
 .bar_chart{
 	background-color: #323130;
@@ -157,11 +161,26 @@ h1{
 	width:680px;
 	height:400px;
 }
+#blackout{
+	position:absolute; 
+	z-index:5 !important; 
+	padding-left: 10px;
+	padding-right: 10px;
+	top:50px;
+	left:430px;
+	width:150px;
+	height:50px;
+	border: 2px solid;
+	border-radius: 5px;
+	border-color: #26d0d0;
+	background-color:black;
+}
 #indicator_panel{
 	width:1840px;
 
 }
 #camera_panel{
+	position: relative;
 	width:700px;
 	height:400px;
 }
